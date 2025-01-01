@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LanguageQuizBot.Models
 {
     public class User
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public long TelegramId { get; set; }
 
-        public string UserName { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
-        public bool IsAuthorized { get; set; } = false;
+        public int DataId { get; set; }
+        [ForeignKey(nameof(DataId))]
+        public UserData Data { get; set; }
 
         public User(long telegramId, string userName)
         {
             TelegramId = telegramId;
-            UserName = userName;
+            Name = userName;
         }
 
         public User() { }
