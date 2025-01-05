@@ -1,9 +1,9 @@
 ﻿using Autofac;
+using LanguageQuizBot.Helpers;
 using LanguageQuizBot.UpdateHandlers.Abstractions;
 using Microsoft.Extensions.Logging;
-using Telegram.Bot.Types;
 using Telegram.Bot;
-using LanguageQuizBot.Helpers;
+using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace LanguageQuizBot.UpdateHandlers

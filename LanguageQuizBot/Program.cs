@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using DotNetEnv;
-using Serilog;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Autofac;
+using DotNetEnv;
+using LanguageQuizBot;
 using LanguageQuizBot.Modules;
 using LanguageQuizBot.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Serilog;
 using Telegram.Bot;
-using LanguageQuizBot;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -50,6 +50,7 @@ try
 
             services.AddSingleton<ITelegramBotClient>(new TelegramBotClient(envVariables["BOT_TOKEN"]));
             services.AddHostedService<TelegramBotClientBackgroundService>();
+            services.AddScoped<UserService>();
         })
         .ConfigureContainer<ContainerBuilder>((context, containerBuilder) =>
         {
@@ -70,8 +71,8 @@ try
 }
 catch (Exception ex)
 {
-    if(ex is not HostAbortedException)
-    Log.Fatal(ex, "Bot initialization error");
+    if (ex is not HostAbortedException)
+        Log.Fatal(ex, "Bot initialization error");
 }
 finally
 {

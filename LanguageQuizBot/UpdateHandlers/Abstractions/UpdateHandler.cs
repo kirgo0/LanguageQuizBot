@@ -1,10 +1,9 @@
-﻿using Autofac.Features.Metadata;
-using Autofac;
+﻿using Autofac;
+using Autofac.Features.Metadata;
+using LanguageQuizBot.Repository.Interfaces;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 using Telegram.Bot;
-using Microsoft.Extensions.Logging;
-using LanguageQuizBot.Repository.Interfaces;
-using LanguageQuizBot.Models;
 using Telegram.Bot.Types;
 using User = LanguageQuizBot.Models.User;
 

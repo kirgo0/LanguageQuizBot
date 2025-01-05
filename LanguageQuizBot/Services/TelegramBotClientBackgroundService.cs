@@ -1,13 +1,12 @@
 ﻿using Autofac;
+using LanguageQuizBot.UpdateHandlers.Abstractions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Telegram.Bot.Exceptions;
-using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types;
 using Telegram.Bot;
-using LanguageQuizBot.UpdateHandlers;
+using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
-using LanguageQuizBot.UpdateHandlers.Abstractions;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace LanguageQuizBot.Services
 {
